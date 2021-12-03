@@ -1,0 +1,27 @@
+{
+  "name": "daily-muffin",
+  "version": "1.0.0",
+  "description": "daily discord bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grapestana/muffindailybot.git"
+  },
+  "keywords": [
+    "muffin"
+  ],
+  "author": "gpestana",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/grapestana/muffindailybot/issues"
+  },
+  "homepage": "https://github.com/grapestana/muffindailybot#readme",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "discord.js": "^13.3.1",
+    "dotenv": "^10.0.0"
+  }
+}
