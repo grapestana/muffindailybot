@@ -21,6 +21,7 @@
   "homepage": "https://github.com/grapestana/muffindailybot#readme",
   "dependencies": {
     "axios": "^0.24.0",
+    "cron": "^1.8.2",
     "discord.js": "^13.3.1",
     "dotenv": "^10.0.0"
   }
