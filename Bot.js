@@ -54,4 +54,4 @@ client.on('message', msg => {
 
 
 //make sure this line is the last line
-client.login(process.env.CLIENT_TOKEN='OTEzNDQwODk4MTk5NzI0MDMy.YZ-iIQ.pS0NWuZkXvNjq_IZZjDG30mpKiY'); //login bot using token
+client.login(process.env.CLIENT_TOKEN); //login bot using token
