@@ -22,16 +22,16 @@ client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
 });
 
+let sendImage = async () => {
+    const guild = client.guilds.cache.get('688135365714116700');
+    const channel = guild.channels.cache.get('917583219497508874');
+    const img = getRandomInt();
+    channel.send(img);
+    channel.send('Você comanda a daily hoje!');
+};
+
 client.once("ready", () => {
     console.log(`Online as ${client.user.tag}`);
-
-    let sendImage = async () => {
-        const guild = client.guilds.cache.get('688135365714116700');
-        const channel = guild.channels.cache.get('917583219497508874');
-        const img = getRandomInt();
-        channel.send(img);
-        channel.send('Você comanda a daily hoje!');
-    };
     let scheduledMessage = new cron.CronJob('00 55 11 * * 1,2,3,4,5', sendImage);
     //sendImage();
 
@@ -45,7 +45,13 @@ client.on('message', msg => {
     }
 });
 
+client.on('message', msg => {
+    if (msg.content === '!Batata') {
+        sendImage();
+    }
+});
+
 
 
 //make sure this line is the last line
-client.login(process.env.CLIENT_TOKEN); //login bot using token
+client.login(process.env.CLIENT_TOKEN='OTEzNDQwODk4MTk5NzI0MDMy.YZ-iIQ.pS0NWuZkXvNjq_IZZjDG30mpKiY'); //login bot using token
