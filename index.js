@@ -33,7 +33,7 @@ client.once("ready", () => {
         channel.send('Você comanda a daily hoje!');
     };
     let scheduledMessage = new cron.CronJob('00 55 11 * * 1,2,3,4,5', sendImage);
-    //sendImage();
+    sendImage();
 
     // When you want to start it, use:
     scheduledMessage.start();
