@@ -2,9 +2,9 @@
   "name": "daily-muffin",
   "version": "1.0.0",
   "description": "daily discord bot",
-  "main": "Bot.js",
+  "main": "bot.js",
   "scripts": {
-  "start": "node Bot.js"
+    "start": "node ."
   },
   "repository": {
     "type": "git",
