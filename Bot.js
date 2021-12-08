@@ -8,6 +8,10 @@ const cron = require('cron'); //import cron
 
 const imageLimit = 14
 
+const imageLimit2 = 6
+
+
+// Randomizar imagens para a daily
 function getRandomInt() {
     min = Math.ceil(1);
     max = Math.floor(imageLimit);
@@ -17,11 +21,22 @@ function getRandomInt() {
     return url
 }
 
+// Randomizar gifs do bot com fome
+function getRandomHungryGif() {
+    min = Math.ceil(1);
+    max = Math.floor(imageLimit2);
+    let img = Math.floor(Math.random() * (max - min)) + min;
+    img = ('0' + img).slice(-2)
+    const url = `https://grapestana.github.io/images/${img}.gif`
+    return url
+}
+
 
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
 });
 
+// Escolher servidor e canal para jogar imagem da daily 
 let sendImage = async () => {
     const guild = client.guilds.cache.get('688135365714116700');
     const channel = guild.channels.cache.get('917583219497508874');
@@ -30,14 +45,25 @@ let sendImage = async () => {
     channel.send('Você comanda a daily hoje!');
 };
 
+// Escolher servidor e canal para jogar gif de fome
+let sendHungry = async () => {
+    const guild = client.guilds.cache.get('688135365714116700');
+    const channel = guild.channels.cache.get('688135365722505269');
+    const img = getRandomHungryGif();
+    channel.send(img);
+};
+
+// Se online começar a cron da daily
 client.once("ready", () => {
     console.log(`Online as ${client.user.tag}`);
     let scheduledMessage = new cron.CronJob('00 55 11 * * 1,2,3,4,5', sendImage);
-    //sendImage();
+    let dailyHungry = new cron.CronJob('00 10 12 * * 1,2,3,4,5', sendHungry);
+    sendHungry();
 
-    // When you want to start it, use:
     scheduledMessage.start();
+    dailyHungry.start();
 });
+
 
 client.on('message', msg => {
     if (msg.content === 'ping') {
