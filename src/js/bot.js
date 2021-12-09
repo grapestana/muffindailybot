@@ -22,6 +22,7 @@ function getRandomInt() {
 }
 
 // Randomizar gifs do bot com fome
+
 function getRandomHungryGif() {
     min = Math.ceil(1);
     max = Math.floor(imageLimit2);
@@ -74,7 +75,7 @@ client.on('message', msg => {
 
 client.on('message', msg => {
     if (msg.content === '!Batata') {
-        sendHungry();
+        sendImage();
     }
 });
 
@@ -82,4 +83,5 @@ client.on('message', msg => {
 
 
 //make sure this line is the last line
+
 client.login(process.env.CLIENT_TOKEN); //login bot using token
