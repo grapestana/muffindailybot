@@ -55,14 +55,21 @@ let sendHungry = async () => {
     channel.send('Essa daily tá demorando... fome!');
 };
 
-// Se online começar a cron da daily
+// Se online começar a cron daily
 client.once("ready", () => {
     console.log(`Online as ${client.user.tag}`);
     let scheduledMessage = new cron.CronJob('00 55 11 * * 1,2,3,4,5', sendImage);
-    let dailyHungry = new cron.CronJob('00 10 12 * * 1,2,3,4,5', sendHungry);
-    //sendHungry();
+    //sendImage();
 
     scheduledMessage.start();
+});
+
+// Se online começar a cron fomeee
+client.once("ready", () => {
+    console.log(`Online as ${client.user.tag}`);
+    let dailyHungry = new cron.CronJob('00 24 12 * * 1,2,3,4,5', sendHungry);
+    //sendHungry();
+
     dailyHungry.start();
 });
 
@@ -76,6 +83,12 @@ client.on('message', msg => {
 client.on('message', msg => {
     if (msg.content === '!Batata') {
         sendImage();
+    }
+});
+
+client.on('message', msg => {
+    if (msg.content === '!Cebola') {
+        sendHungry();
     }
 });
 
