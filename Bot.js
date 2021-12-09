@@ -8,7 +8,7 @@ const cron = require('cron'); //import cron
 
 const imageLimit = 14
 
-const imageLimit2 = 6
+const imageLimit2 = 5
 
 
 // Randomizar imagens para a daily
@@ -27,7 +27,7 @@ function getRandomHungryGif() {
     max = Math.floor(imageLimit2);
     let img = Math.floor(Math.random() * (max - min)) + min;
     img = ('0' + img).slice(-2)
-    const url = `https://grapestana.github.io/images/${img}.gif`
+    const url = `https://grapestana.github.io/gifs/${img}.gif`
     return url
 }
 
@@ -67,13 +67,13 @@ client.once("ready", () => {
 
 client.on('message', msg => {
     if (msg.content === 'ping') {
-        msg.reply('Pelanca!');
+        msg.reply('Pong');
     }
 });
 
 client.on('message', msg => {
     if (msg.content === '!Batata') {
-        sendImage();
+        sendHungry();
     }
 });
 
