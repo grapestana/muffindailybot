@@ -2,13 +2,13 @@
   "name": "daily-muffin",
   "version": "1.0.0",
   "description": "daily discord bot",
-  "main": "bot.js",
+  "main": "src/js/bot.js",
   "engines": {
     "node": "16.13.1",
     "npm": "8.1.2"
   },
   "scripts": {
-    "start": "node bot.js"
+    "start": "node src/js/bot.js"
   },
   "repository": {
     "type": "git",
