@@ -67,7 +67,7 @@ client.once("ready", () => {
 // Se online começar a cron fomeee
 client.once("ready", () => {
     console.log(`Online as ${client.user.tag}`);
-    let dailyHungry = new cron.CronJob('00 24 12 * * 1,2,3,4,5', sendHungry);
+    let dailyHungry = new cron.CronJob('00 10 12 * * 1,2,3,4,5', sendHungry);
     //sendHungry();
 
     dailyHungry.start();
