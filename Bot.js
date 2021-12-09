@@ -51,6 +51,7 @@ let sendHungry = async () => {
     const channel = guild.channels.cache.get('688135365722505269');
     const img = getRandomHungryGif();
     channel.send(img);
+    channel.send('Essa daily tá demorando... fome!');
 };
 
 // Se online começar a cron da daily
