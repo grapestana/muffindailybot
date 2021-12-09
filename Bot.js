@@ -58,7 +58,7 @@ client.once("ready", () => {
     console.log(`Online as ${client.user.tag}`);
     let scheduledMessage = new cron.CronJob('00 55 11 * * 1,2,3,4,5', sendImage);
     let dailyHungry = new cron.CronJob('00 10 12 * * 1,2,3,4,5', sendHungry);
-    sendHungry();
+    //sendHungry();
 
     scheduledMessage.start();
     dailyHungry.start();
