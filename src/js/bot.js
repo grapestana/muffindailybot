@@ -6,7 +6,7 @@ const client = new Discord.Client({ intents: ["GUILDS", "GUILD_MESSAGES"] })
 
 const cron = require('cron'); //import cron
 
-
+const fetch = require('node-fetch'); //import fetch
 
 const imageLimit = 14
 
@@ -95,8 +95,18 @@ client.on('message', msg => {
     }
 });
 
+client.on('message', async (msg) => {
+    const tokens = msg.content.split(" ");
 
-
+    if (tokens[0] === "!BomDia") {
+        const keywords = "bom dia";
+        const url = `https://api.tenor.com/v1/search?q=${keywords}&key=${process.env.TENOR_KEY}&limit=10`
+        const response = await fetch(url);
+        const result = await response.json();
+        const index = Math.floor(Math.random() * result.results.length);
+        msg.channel.send(result.results[index].url);
+    }
+});
 
 
 //make sure this line is the last line
