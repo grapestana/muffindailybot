@@ -6,7 +6,7 @@ const client = new Discord.Client({ intents: ["GUILDS", "GUILD_MESSAGES"] })
 
 const cron = require('cron'); //import cron
 
-//const fetch = require('node-fetch'); //import fetch
+const fetch = require('node-fetch'); //import fetch
 
 const imageLimit = 14
 
