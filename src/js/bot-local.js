@@ -61,7 +61,7 @@ let sendHungry = async () => {
 // Se online começar a cron daily
 client.once("ready", () => {
     console.log(`Online as ${client.user.tag}`);
-    let scheduledMessage = new cron.CronJob('00 55 14 * * 1,2,3,4,5', sendImage);
+    let scheduledMessage = new cron.CronJob('00 55 11 * * 1,2,3,4,5', sendImage);
     //sendImage();
 
     scheduledMessage.start();
@@ -70,7 +70,7 @@ client.once("ready", () => {
 // Se online começar a cron fomeee
 client.once("ready", () => {
     console.log(`Online as ${client.user.tag}`);
-    let dailyHungry = new cron.CronJob('00 10 15 * * 1,2,3,4,5', sendHungry);
+    let dailyHungry = new cron.CronJob('00 10 12 * * 1,2,3,4,5', sendHungry);
     //sendHungry();
 
     dailyHungry.start();
