@@ -14,6 +14,7 @@ const imageLimit2 = 5
 
 
 // Randomizar imagens para a daily
+
 function getRandomInt() {
     min = Math.ceil(1);
     max = Math.floor(imageLimit);
@@ -68,6 +69,7 @@ client.once("ready", () => {
 });
 
 // Se online começar a cron fomeee
+
 client.once("ready", () => {
     console.log(`Online as ${client.user.tag}`);
     let dailyHungry = new cron.CronJob('00 10 15 * * 1,2,3,4,5', sendHungry);

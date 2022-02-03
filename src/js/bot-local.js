@@ -1,19 +1,19 @@
-require('dotenv').config(); //initialize dotenv
+require('dotenv').config(); 
 
-const Discord = require('discord.js'); //import discord.js
+const Discord = require('discord.js');
 
 const client = new Discord.Client({ intents: ["GUILDS", "GUILD_MESSAGES"] })
 
-const cron = require('cron'); //import cron
+const cron = require('cron');
 
-const fetch = require('node-fetch'); //import fetch
+const fetch = require('node-fetch');
 
 const imageLimit = 10
 
 const imageLimit2 = 5
 
-
 // Randomizar imagens para a daily
+
 function getRandomInt() {
     min = Math.ceil(1);
     max = Math.floor(imageLimit);
@@ -33,7 +33,6 @@ function getRandomHungryGif() {
     const url = `https://grapestana.github.io/gifs/${img}.gif`
     return url
 }
-
 
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
@@ -59,6 +58,7 @@ let sendHungry = async () => {
 };
 
 // Se online começar a cron daily
+
 client.once("ready", () => {
     console.log(`Online as ${client.user.tag}`);
     let scheduledMessage = new cron.CronJob('00 55 11 * * 1,2,3,4,5', sendImage);
@@ -68,6 +68,7 @@ client.once("ready", () => {
 });
 
 // Se online começar a cron fomeee
+
 client.once("ready", () => {
     console.log(`Online as ${client.user.tag}`);
     let dailyHungry = new cron.CronJob('00 10 12 * * 1,2,3,4,5', sendHungry);
@@ -75,7 +76,6 @@ client.once("ready", () => {
 
     dailyHungry.start();
 });
-
 
 client.on('message', msg => {
     if (msg.content === 'ping') {
@@ -95,8 +95,4 @@ client.on('message', msg => {
     }
 });
 
-
-
-//make sure this line is the last line
-
-client.login(process.env.CLIENT_TOKEN); //login bot using token
+client.login(process.env.CLIENT_TOKEN);
