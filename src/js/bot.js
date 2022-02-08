@@ -20,7 +20,7 @@ function getRandomInt() {
     max = Math.floor(imageLimit);
     let img = Math.floor(Math.random() * (max - min)) + min;
     img = ('0' + img).slice(-2)
-    const url = `https://grapestana.github.io/daily/${img}.jpg` 
+    const url = `https://grapestana.github.io/imgs/${img}.jpg` 
     return url
 }
 
